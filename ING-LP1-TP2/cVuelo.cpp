@@ -21,15 +21,15 @@ bool cVuelo::AsociarAvion(cAvion* avion) {
 }
 
 void cVuelo::AgregarPasajero(cPasajero* pasajero) {
-
+	//Implementación
 }
 void cVuelo::CambiarPasajero(string DNI, string asiento) {
-
+	//Implementación
 }
 void cVuelo::EliminarPasajero(string DNI){
-
+	//Implementación
 }
 
-string getPasajero(string DNI) {
+string cVuelo::getPasajero(string DNI) {
 	return "Datos Pasajero";
 }
