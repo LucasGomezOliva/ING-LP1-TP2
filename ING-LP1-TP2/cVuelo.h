@@ -1,17 +1,19 @@
 #pragma once
 using namespace std;
 #include<string>
-//#include <ctime>
-//#include <atltime.h>
 #include"cFecha.h"
 #include"cAvion.h"
 #include"cPasajero.h"
 
+//TODO separar enum
+enum class EstadoVuelo { Arribo, Partida };
+
 class cVuelo
 {
 private:
-	//numero de vuelo
-	//bool estado;
+	static int NumeroVuelo;
+	string ID;
+	EstadoVuelo estado;
 	cAvion* Avion = NULL;
 	cFecha* partida = NULL;
 	cFecha* arribo = NULL;
@@ -26,5 +28,9 @@ public:
 	void CambiarPasajero(string DNI, string asiento);
 	void EliminarPasajero(string DNI);
 	string getPasajero(string DNI);
+	int getNumeroVuelo();
+	string getID();
+	string to_stringVuelo();
+	void imprimir();
 };
 

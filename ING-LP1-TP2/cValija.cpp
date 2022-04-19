@@ -1,7 +1,6 @@
 #include "cValija.h"
 
 cValija::cValija() {
-	//this->ID = "";
 	this->peso = 0;
 }
 

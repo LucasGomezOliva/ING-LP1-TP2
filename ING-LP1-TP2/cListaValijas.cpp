@@ -20,11 +20,11 @@ cListaValijas::~cListaValijas() {
 	}
 }
 
-bool cListaValijas::AgregarValija(int peso) {
-	if ((CantidadValijas == CantidadMax) && (PesoMax <= PesoActual + peso)) {
+bool cListaValijas::AgregarValija(float peso) {
+	if ((CantidadValijas == CantidadMax) && (PesoMax <= (PesoActual + peso))) {
 		return false;
 	}
 	this->ArrayValijas[CantidadValijas++] = new cValija(peso);
-	PesoActual = PesoActual + peso;
+	this->PesoActual = PesoActual + peso;
 	return true;
 }

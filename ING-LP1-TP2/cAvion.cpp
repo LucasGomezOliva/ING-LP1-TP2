@@ -1,39 +1,64 @@
 #include "cAvion.h"
 cAvion::cAvion() {
 	this->ID = "";
-	this->CantidadPasajeros = 0;
-	this->PasajerosActuales = 0;
-	this->PesoMaximo = 0;
+	ListaPasajeros = new cListaPasajeros();
 }
-cAvion::~cAvion() {
 
+cAvion::cAvion(string ID) {
+	this->ID = ID;
+	ListaPasajeros = new cListaPasajeros();
+}
+
+cAvion::~cAvion() {
+	delete ListaPasajeros;
+}
+
+float cAvion::CalcularPeso() {
+	return (ListaPasajeros->CalcularPeso() + (Tripulacion * 75));
+}
+
+bool cAvion::AgregarPasajero(cPasajero* pasajero) {
+	ListaPasajeros->AgregarPasajeros(pasajero);
+	return true;
+}
+
+bool cAvion::BajaPasajero(string DNI) {
+	ListaPasajeros->QuitarPasajero(DNI);
+	return true;
 }
 
 bool cAvion::ChequearCargaMaxima() {
-	//Implementacion
+	if (CalcularPeso() <= PesoMaximo) {
+		return true;
+	}
 	return false;
 }
 
 bool cAvion::ChequearCapacidadMaxima() {
-	//Implementacion
-	return false;
-}
-bool cAvion::Verificaciones() {
-	//Implementacion
-	if (ChequearCargaMaxima() == true && ChequearCapacidadMaxima() == true)
+	if (ListaPasajeros->getCantidadPasajeros() <= CapacidadPasajeros) {
 		return true;
+	}
 	return false;
 }
 
-int cAvion::CalcularPeso(){
-	//Implementacion
-	return 4;
+bool cAvion::Verificaciones() {
+	if (ChequearCargaMaxima() == true && ChequearCapacidadMaxima() == true) {
+		return true;
+	}
+	return false;
 }
-bool cAvion::AgregarPasajero(cPasajero* pasajero) {
-	//Implementacion
-	return true;
+
+string cAvion::getID() {
+	return ID;
 }
-bool cAvion::BajaPasajero() {
-	//Implementacion
-	return true;
+
+void cAvion::Despegar() {
+
+}
+void cAvion::Aterrizar() {
+
+}
+
+cPasajero* cAvion::getPasajero(string DNI) {
+	return ListaPasajeros->getPasajero(DNI);
 }

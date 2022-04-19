@@ -4,7 +4,6 @@ using namespace std;
 class cValija
 {
 private:
-	//string ID;
 	float peso;
 public:
 	cValija();

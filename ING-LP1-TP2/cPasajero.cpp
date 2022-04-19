@@ -2,12 +2,15 @@
 cPasajero::cPasajero() {
 	this->DNI = "";
 	this->Nombre = "";
-	ListaValijas = new cListaValijas();
+	this->Asiento = 0;
+	this->ListaValijas = new cListaValijas();
 }
 
-cPasajero::cPasajero(string DNI, string Nombre){
+cPasajero::cPasajero(string DNI, string Nombre,int Asiento){
 	this->DNI = DNI;
 	this->Nombre = Nombre;
+	this->Asiento = Asiento;
+	this->ListaValijas = new cListaValijas();
 }
 
 cPasajero::~cPasajero() {
@@ -19,8 +22,24 @@ bool cPasajero::AgregarEquipaje(float peso) {
 	return true;
 }
 
+float cPasajero::getPeso() {
+	float PesoPasajeroConEquipaje = (ListaValijas->getPesoEquipaje()) + peso_prom;
+	return PesoPasajeroConEquipaje;
+}
+
+int cPasajero::getAsiento() {
+	return Asiento;
+}
+
+string cPasajero::getDNI() { 
+	return DNI; 
+}
+string cPasajero::getNombre() {
+	return Nombre; 
+}
+
 string cPasajero::to_stringPasajero() {
-	return "\tNombre: " + Nombre + "\tDNI: " + DNI + "\tPeso Equipaje" + to_string(ListaValijas->getPesoEquipaje());
+	return "\tNombre: " + Nombre + "\tDNI: " + DNI + "\tPeso Equipaje: " + to_string(ListaValijas->getPesoEquipaje()) + "\tPeso Pasajero+Equipaje: " + to_string(getPeso());
 }
 
 void cPasajero::imprimir() {

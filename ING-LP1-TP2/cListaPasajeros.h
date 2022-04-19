@@ -11,5 +11,10 @@ public:
 	cListaPasajeros();
 	~cListaPasajeros();
 	void AgregarPasajeros(cPasajero* pasajero);
+	void QuitarPasajero(string DNI);
+	float CalcularPeso();
+	int getCantidadPasajeros();
+	int getIndex(string DNI);
+	cPasajero* getPasajero(string DNI);
 };
 

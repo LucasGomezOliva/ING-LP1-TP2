@@ -1,7 +1,6 @@
 #pragma once
 #include<string>
 #include<iostream>
-//#include"cValija.h"
 #include"cListaValijas.h"
 using namespace std;
 class cPasajero
@@ -10,19 +9,18 @@ private:
 	string DNI;
 	string Nombre;
 	//numero de vuelo
-	//asiento
+	int Asiento;
 	cListaValijas* ListaValijas = NULL;
-	const int peso_prom = 75;
+	const float peso_prom = 75;
 public:
 	cPasajero();
-	cPasajero(string DNI, string Nombre);
+	cPasajero(string DNI, string Nombre, int Asiento);
 	~cPasajero();
-
 	bool AgregarEquipaje(float peso);
-
-	string getDNI() { return DNI; };
-	string getNombre() { return Nombre; };
-
+	float getPeso();
+	int getAsiento();
+	string getDNI();
+	string getNombre();
 	string to_stringPasajero();
 	void imprimir();
 };

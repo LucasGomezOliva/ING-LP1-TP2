@@ -2,11 +2,18 @@
 
 cAeropuerto::cAeropuerto() {
 	this->ID = "";
-	//this->capacidad = 0;
+	this->ListaVuelos = new cListaVuelos();
+	this->ListaAviones = new cListaAviones();
+}
+
+cAeropuerto::cAeropuerto(string ID) {
+	this->ID = ID;
+	this->ListaVuelos = new cListaVuelos();
+	this->ListaAviones = new cListaAviones();
 }
 
 cAeropuerto::~cAeropuerto() {
-
+	delete ListaAviones;
 }
 
 void cAeropuerto::permiso() {

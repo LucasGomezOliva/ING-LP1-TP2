@@ -3,12 +3,37 @@
 
 #include <iostream>
 #include <time.h>
-#include"cVuelo.h"
+#include"cAeropuerto.h"
+#include"cPasajero.h"
 using namespace std;
+
+int cVuelo::NumeroVuelo = 0;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+
+    cVuelo* Vuelo_001 = new cVuelo("destino", 1, 1, 2000, 12, 30, 1, 1, 2000, 20, 30);
+    cVuelo* Vuelo_002 = new cVuelo("destino", 1, 1, 2000, 13, 30, 1, 1, 2000, 21, 30);
+    cVuelo* Vuelo_003 = new cVuelo("destino", 1, 1, 2000, 14, 30, 1, 1, 2000, 22, 30);
+
+    Vuelo_001->imprimir();
+    Vuelo_002->imprimir();
+    Vuelo_003->imprimir();
+
+    cPasajero* Pasaejero_1 = new cPasajero("DNI_0001","Nombre_0001",0);
+
+    Pasaejero_1->AgregarEquipaje(5);
+    Pasaejero_1->AgregarEquipaje(10);
+    Pasaejero_1->imprimir();
+
+    cAeropuerto* Aeropuerto_1 = new cAeropuerto("Aero");
+
+    delete Pasaejero_1;
+    delete Vuelo_001;
+    delete Vuelo_002;
+    delete Vuelo_003;
+    delete Aeropuerto_1;
+   
 }
 
 // Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
