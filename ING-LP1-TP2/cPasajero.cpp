@@ -45,3 +45,11 @@ string cPasajero::to_stringPasajero() {
 void cPasajero::imprimir() {
 	cout << to_stringPasajero() << endl;
 }
+
+void cPasajero::operator+ ( float valija) {
+	AgregarEquipaje(valija);
+}
+
+void cPasajero::operator-( int CantidadEliminar) {
+	ListaValijas->EliminarValija(CantidadEliminar);
+}

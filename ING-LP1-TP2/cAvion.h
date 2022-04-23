@@ -3,7 +3,7 @@ using namespace std;
 #include<string>
 #include "cListaPasajeros.h"
 #include"cPasajero.h"
-
+class cVuelo;
 class cAvion
 {
 private:
@@ -13,11 +13,12 @@ private:
 	const float PesoMaximo = 500;
 	cListaPasajeros* ListaPasajeros;
 public:
+	friend cVuelo;
 	cAvion();
 	cAvion(string ID);
 	~cAvion();
 	float CalcularPeso();
-	bool AgregarPasajero(cPasajero* pasajero);
+	bool AgregarPasajero(cPasajero* pasajero);//no se usa
 	bool BajaPasajero(string DNI);
 	bool ChequearCargaMaxima();
 	bool ChequearCapacidadMaxima();

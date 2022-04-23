@@ -12,6 +12,8 @@ public:
 	cListaValijas();
 	~cListaValijas();
 	bool AgregarValija(float peso);
+	bool EliminarValija(int CantidadEliminar);
 	float getPesoEquipaje() { return PesoActual; };
+
 };
 

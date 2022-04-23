@@ -12,27 +12,59 @@ int cVuelo::NumeroVuelo = 0;
 int main()
 {
 
-    cVuelo* Vuelo_001 = new cVuelo("destino", 1, 1, 2000, 12, 30, 1, 1, 2000, 20, 30);
-    cVuelo* Vuelo_002 = new cVuelo("destino", 1, 1, 2000, 13, 30, 1, 1, 2000, 21, 30);
-    cVuelo* Vuelo_003 = new cVuelo("destino", 1, 1, 2000, 14, 30, 1, 1, 2000, 22, 30);
+    cAvion* Avion_001 = new cAvion();
+
+    cVuelo* Vuelo_001 = new cVuelo("destino", 1, 1, 2000, 12, 30, 1, 1, 2000, 20, 30, EstadoVuelo::Partida);
+    //cVuelo* Vuelo_002 = new cVuelo("destino", 1, 1, 2000, 13, 30, 1, 1, 2000, 21, 30, EstadoVuelo::Arribo);
+    //cVuelo* Vuelo_003 = new cVuelo("destino", 1, 1, 2000, 14, 30, 1, 1, 2000, 22, 30, EstadoVuelo::Partida);
+
+    Vuelo_001->AsociarAvion(Avion_001);
 
     Vuelo_001->imprimir();
-    Vuelo_002->imprimir();
-    Vuelo_003->imprimir();
 
-    cPasajero* Pasaejero_1 = new cPasajero("DNI_0001","Nombre_0001",0);
+    cPasajero* Pasaejero_1 = new cPasajero("DNI_0001", "Nombre_0001", 0);
+    cPasajero* Pasaejero_2 = new cPasajero("DNI_0002", "Nombre_0002", 1);
+    cPasajero* Pasaejero_3 = new cPasajero("DNI_0003", "Nombre_0003", 2);
 
     Pasaejero_1->AgregarEquipaje(5);
     Pasaejero_1->AgregarEquipaje(10);
-    Pasaejero_1->imprimir();
+   
+    
+    //Pasaejero_2->AgregarEquipaje(5);
+    //Pasaejero_2->AgregarEquipaje(10);
 
-    cAeropuerto* Aeropuerto_1 = new cAeropuerto("Aero");
+    *(Pasaejero_2) + 5;
+    *(Pasaejero_2) + 10;
+
+    Pasaejero_3->AgregarEquipaje(5);
+    Pasaejero_3->AgregarEquipaje(10);
+
+    Pasaejero_1->imprimir();
+    Pasaejero_2->imprimir();
+    Pasaejero_3->imprimir();
+
+    //*(Pasaejero_2)-2;
+
+    Pasaejero_2->imprimir();
+
+    Vuelo_001->AgregarPasajero(Pasaejero_1);
+    Vuelo_001->AgregarPasajero(Pasaejero_2);
+    Vuelo_001->AgregarPasajero(Pasaejero_3);
+
+    
+
+   // cAeropuerto* Aeropuerto_1 = new cAeropuerto("Aero");
 
     delete Pasaejero_1;
+    delete Pasaejero_2;
+    delete Pasaejero_3;
+
+    delete Avion_001;
+
     delete Vuelo_001;
-    delete Vuelo_002;
-    delete Vuelo_003;
-    delete Aeropuerto_1;
+    //delete Vuelo_002;
+    //delete Vuelo_003;
+    //delete Aeropuerto_1;
    
 }
 

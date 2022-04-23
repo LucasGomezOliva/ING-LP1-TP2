@@ -1,4 +1,5 @@
 #include "cAvion.h"
+#include"cVuelo.h"
 cAvion::cAvion() {
 	this->ID = "";
 	ListaPasajeros = new cListaPasajeros();

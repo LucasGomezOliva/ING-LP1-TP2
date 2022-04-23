@@ -21,10 +21,26 @@ cListaValijas::~cListaValijas() {
 }
 
 bool cListaValijas::AgregarValija(float peso) {
-	if ((CantidadValijas == CantidadMax) && (PesoMax <= (PesoActual + peso))) {
+	if ((CantidadValijas == CantidadMax) || (PesoMax <= (PesoActual + peso))) {
+		//throw new exception("error");
+
 		return false;
 	}
 	this->ArrayValijas[CantidadValijas++] = new cValija(peso);
 	this->PesoActual = PesoActual + peso;
 	return true;
+}
+
+bool cListaValijas::EliminarValija(int CantidadEliminar) {
+	if (CantidadEliminar <= CantidadValijas && CantidadEliminar > 0) {
+		for (int i = (CantidadValijas-CantidadEliminar); i < CantidadValijas; i++) {
+			if (ArrayValijas[i] != NULL) {
+				PesoActual = PesoActual - ArrayValijas[i]->getPeso();
+				delete ArrayValijas[i];
+				CantidadValijas--;
+			}
+		}
+		return true;
+	}
+	return false;
 }

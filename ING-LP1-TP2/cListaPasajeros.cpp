@@ -21,6 +21,7 @@ cListaPasajeros::~cListaPasajeros() {
 void cListaPasajeros::AgregarPasajeros(cPasajero* pasajero) {
 	if (ArrayPasajeros[pasajero->getAsiento()] == NULL) {
 		ArrayPasajeros[pasajero->getAsiento()] = pasajero;
+		CantidadPasajeros++;
 	}
 }
 

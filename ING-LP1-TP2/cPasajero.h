@@ -23,5 +23,10 @@ public:
 	string getNombre();
 	string to_stringPasajero();
 	void imprimir();
+
+	void operator + ( float valija );
+
+	void operator - (int CantidadEliminar);
+
 };
 
