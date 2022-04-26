@@ -8,10 +8,11 @@ private:
 	int CantidadAviones;
 	cAvion** ArrayAviones;
 public:
+	//friend class cAeropuerto;
 	cListaAviones();
 	~cListaAviones();
 	bool AgregarAvion(cAvion* avion);
-	bool QuitarAvion();
+	bool QuitarAvion(cAvion* avion);
 	int getIndex(string ID);
 };
 

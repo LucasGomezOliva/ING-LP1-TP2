@@ -11,60 +11,100 @@ int cVuelo::NumeroVuelo = 0;
 
 int main()
 {
+    //Creación de Aeropuerto
+
+    cAeropuerto* Aeropuerto_1 = new cAeropuerto("Aero");
+
+    //Crean los Aviones
 
     cAvion* Avion_001 = new cAvion();
+    cAvion* Avion_002 = new cAvion();
 
-    cVuelo* Vuelo_001 = new cVuelo("destino", 1, 1, 2000, 12, 30, 1, 1, 2000, 20, 30, EstadoVuelo::Partida);
-    //cVuelo* Vuelo_002 = new cVuelo("destino", 1, 1, 2000, 13, 30, 1, 1, 2000, 21, 30, EstadoVuelo::Arribo);
-    //cVuelo* Vuelo_003 = new cVuelo("destino", 1, 1, 2000, 14, 30, 1, 1, 2000, 22, 30, EstadoVuelo::Partida);
+    //Crean Vuelos 
+
+    cVuelo* Vuelo_001 = new cVuelo("destino_1", 1, 1, 2000, 12, 30, 1, 1, 2000, 20, 30, EstadoVuelo::Partida);
+    cVuelo* Vuelo_002 = new cVuelo("destino_2", 1, 1, 2000, 12, 30, 1, 1, 2000, 20, 30, EstadoVuelo::Arribo);
+
+    //Asocia cada avion a un vuelo
 
     Vuelo_001->AsociarAvion(Avion_001);
+    Vuelo_002->AsociarAvion(Avion_002);
+
+    //Crean los pasajeros y se agrega su equipaje usando sobrecarga de operador +
+    
+    //Pasajeros vuelos_001
+    cPasajero* Pasajero_1 = new cPasajero("DNI_0001", "Nombre_0001", 1, 0);
+    cPasajero* Pasajero_2 = new cPasajero("DNI_0002", "Nombre_0002", 1, 1);
+    cPasajero* Pasajero_3 = new cPasajero("DNI_0003", "Nombre_0003", 1, 2);
+    //Pasajeros vuelos_002
+    cPasajero* Pasajero_4 = new cPasajero("DNI_0004", "Nombre_0004", 2, 0);
+    cPasajero* Pasajero_5 = new cPasajero("DNI_0005", "Nombre_0005", 2, 1);
+
+    *(Pasajero_1) + 5;
+    *(Pasajero_1) + 10;
+    *(Pasajero_2) + 5;
+    *(Pasajero_2) + 10;
+    *(Pasajero_3) + 5;
+    *(Pasajero_3) + 10;
+
+    //Imprimen los datos de los pasajeros
+
+    Pasajero_1->imprimir();
+    Pasajero_2->imprimir();
+    Pasajero_3->imprimir();
+
+    //Eliminar quipaje del passajero usando sobrecarga del operador-  ----REVISAR NO ANDA
+
+    //*(Pasajero_2)-2;
+
+    Pasajero_2->imprimir();
+
+    //Agregan los pasajeros vuelo_001
+
+    Vuelo_001->AgregarPasajero(Pasajero_1);
+    Vuelo_001->AgregarPasajero(Pasajero_2);
+    Vuelo_001->AgregarPasajero(Pasajero_3);
+
+    //Agregan los pasajeros vuelo_002
+
+    Vuelo_002->AgregarPasajero(Pasajero_4);
+    Vuelo_002->AgregarPasajero(Pasajero_5);
+
+    //Carga de Lista de aviones en el hangar del Aeropuerto
+  
+    Aeropuerto_1->getListaAviones()->AgregarAvion(Avion_001);
+    Aeropuerto_1->getListaAviones()->AgregarAvion(Avion_002);
+
+    //Carga de Lista de Vuelos en el Aeropuerto
+
+    Aeropuerto_1->getListaVuelos()->AgregarVuelo(Vuelo_001);
+    Aeropuerto_1->getListaVuelos()->AgregarVuelo(Vuelo_002);
+
+    //Imprimen los vuelos
 
     Vuelo_001->imprimir();
+    Vuelo_002->imprimir();
 
-    cPasajero* Pasaejero_1 = new cPasajero("DNI_0001", "Nombre_0001", 0);
-    cPasajero* Pasaejero_2 = new cPasajero("DNI_0002", "Nombre_0002", 1);
-    cPasajero* Pasaejero_3 = new cPasajero("DNI_0003", "Nombre_0003", 2);
+    //Despegue de Avion del Aeropuerto ---FALTA IMPLEMENTAR EL METODO QUITAR AVION EN LISTA AVIONES
 
-    Pasaejero_1->AgregarEquipaje(5);
-    Pasaejero_1->AgregarEquipaje(10);
-   
-    
-    //Pasaejero_2->AgregarEquipaje(5);
-    //Pasaejero_2->AgregarEquipaje(10);
+    Aeropuerto_1->Despegue();
 
-    *(Pasaejero_2) + 5;
-    *(Pasaejero_2) + 10;
+    //Aterrizaje de un Avion en el aeropuerto ---FALTA IMPLEMENTAR EL METODO ATERRIZAJE EN AEROPUERTO
 
-    Pasaejero_3->AgregarEquipaje(5);
-    Pasaejero_3->AgregarEquipaje(10);
+    Aeropuerto_1->Aterrizaje();
 
-    Pasaejero_1->imprimir();
-    Pasaejero_2->imprimir();
-    Pasaejero_3->imprimir();
+    //Deletes
 
-    //*(Pasaejero_2)-2;
-
-    Pasaejero_2->imprimir();
-
-    Vuelo_001->AgregarPasajero(Pasaejero_1);
-    Vuelo_001->AgregarPasajero(Pasaejero_2);
-    Vuelo_001->AgregarPasajero(Pasaejero_3);
-
-    
-
-   // cAeropuerto* Aeropuerto_1 = new cAeropuerto("Aero");
-
-    delete Pasaejero_1;
-    delete Pasaejero_2;
-    delete Pasaejero_3;
-
-    delete Avion_001;
-
+    delete Aeropuerto_1;
     delete Vuelo_001;
-    //delete Vuelo_002;
-    //delete Vuelo_003;
-    //delete Aeropuerto_1;
+    delete Vuelo_002;
+    delete Avion_001;
+    delete Avion_002;    
+    delete Pasajero_1;
+    delete Pasajero_2;
+    delete Pasajero_3;
+    delete Pasajero_4;
+    delete Pasajero_5;
    
 }
 

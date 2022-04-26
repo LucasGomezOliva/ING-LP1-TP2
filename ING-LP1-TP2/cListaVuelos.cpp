@@ -28,6 +28,21 @@ bool cListaVuelos::AgregarVuelo(cVuelo* vuelo) {
 	return true;
 }
 
+bool cListaVuelos::QuitarVuelo(int NumeroVuelo) {
+	for (int i = 0; i < CantidadVuelos; i++)
+	{
+		if (ArrayVuelos[i]->getNumeroVuelo() == NumeroVuelo) {
+			
+			for (int p = i; p < CantidadVuelos-1; p++)
+			{
+				ArrayVuelos[p] = ArrayVuelos[p + 1];
+			}
+			ArrayVuelos[--CantidadVuelos] = NULL;
+		}
+	}
+	return true;
+}
+
 int cListaVuelos::getIndex(int NumeroVuelo) {
 	for (int i = 0; i < CantidadVuelos; i++) {
 		if (ArrayVuelos[i]->getNumeroVuelo() == NumeroVuelo)

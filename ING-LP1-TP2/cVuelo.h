@@ -30,7 +30,10 @@ public:
 	void EliminarPasajero(string DNI);
 	cPasajero* getPasajero(string DNI);
 	int getNumeroVuelo();
+	int getCantidadPasajerosVuelo();
 	string getID();
+	cAvion* getAvion();
+	EstadoVuelo getEstadoVuelo();
 	string to_stringVuelo();
 	void imprimir();
 };

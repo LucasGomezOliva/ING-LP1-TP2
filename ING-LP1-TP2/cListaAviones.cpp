@@ -26,7 +26,7 @@ bool cListaAviones::AgregarAvion(cAvion* avion) {
 	this->ArrayAviones[CantidadAviones++] = avion;
 	return true;
 }
-bool cListaAviones::QuitarAvion() {
+bool cListaAviones::QuitarAvion(cAvion*avion) {
 	//TODO
 	return true;
 }

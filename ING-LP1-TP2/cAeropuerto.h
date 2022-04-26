@@ -4,18 +4,28 @@
 #include"cListaVuelos.h"
 #include"cListaAviones.h"
 using namespace std;
+//class cListaVuelos;
 class cAeropuerto
 {
 private:
 	string ID;
-	//const static int CapacidadHangar = 10;
 	cListaVuelos* ListaVuelos;
 	cListaAviones* ListaAviones;
-
+	int PasajerosDia;
 public:
+	friend cVuelo;
 	cAeropuerto();
 	cAeropuerto(string ID);
 	~cAeropuerto();
-	void permiso();
+	cListaVuelos* getListaVuelos();
+	cListaAviones* getListaAviones();
+
+	//void Despegue(cVuelo* vuelo);
+
+	void Despegue();
+	void Aterrizaje();
+
+	void PermisoDespegar();
+	
 };
 

@@ -50,8 +50,20 @@ int cVuelo::getNumeroVuelo() {
 	return NumeroVuelo;
 }
 
+int cVuelo::getCantidadPasajerosVuelo() {
+	return Avion->getCantidadPasajeros();
+}
+
 string cVuelo::getID() {
 	return ID;
+}
+
+cAvion* cVuelo::getAvion() {
+	return Avion;
+}
+
+EstadoVuelo cVuelo::getEstadoVuelo() {
+	return estado;
 }
 
 string cVuelo::to_stringVuelo() {

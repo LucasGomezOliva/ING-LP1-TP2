@@ -31,9 +31,9 @@ bool cListaValijas::AgregarValija(float peso) {
 	return true;
 }
 
-bool cListaValijas::EliminarValija(int CantidadEliminar) {
+bool cListaValijas::EliminarValija(int CantidadEliminar) { ///Revisar para operador - valija
 	if (CantidadEliminar <= CantidadValijas && CantidadEliminar > 0) {
-		for (int i = (CantidadValijas-CantidadEliminar); i < CantidadValijas; i++) {
+		for (int i = (CantidadValijas-CantidadEliminar); i < CantidadValijas-1; i++) {
 			if (ArrayValijas[i] != NULL) {
 				PesoActual = PesoActual - ArrayValijas[i]->getPeso();
 				delete ArrayValijas[i];

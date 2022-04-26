@@ -4,6 +4,7 @@ using namespace std;
 #include "cListaPasajeros.h"
 #include"cPasajero.h"
 class cVuelo;
+//class cListaAviones;
 class cAvion
 {
 private:
@@ -13,6 +14,7 @@ private:
 	const float PesoMaximo = 500;
 	cListaPasajeros* ListaPasajeros;
 public:
+	//friend cListaAviones;
 	friend cVuelo;
 	cAvion();
 	cAvion(string ID);
@@ -25,6 +27,7 @@ public:
 	bool Verificaciones();
 	void Despegar();
 	void Aterrizar();
+	int getCantidadPasajeros();
 	cPasajero* getPasajero(string DNI);
 	string getID();
 };

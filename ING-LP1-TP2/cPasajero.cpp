@@ -2,13 +2,15 @@
 cPasajero::cPasajero() {
 	this->DNI = "";
 	this->Nombre = "";
+	this->NumeroVuelo = 0;
 	this->Asiento = 0;
 	this->ListaValijas = new cListaValijas();
 }
 
-cPasajero::cPasajero(string DNI, string Nombre,int Asiento){
+cPasajero::cPasajero(string DNI, string Nombre, int NumeroVuelo, int Asiento){
 	this->DNI = DNI;
 	this->Nombre = Nombre;
+	this->NumeroVuelo = NumeroVuelo;
 	this->Asiento = Asiento;
 	this->ListaValijas = new cListaValijas();
 }

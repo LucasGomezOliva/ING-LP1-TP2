@@ -60,6 +60,9 @@ void cAvion::Aterrizar() {
 
 }
 
+int cAvion::getCantidadPasajeros() {
+	return ListaPasajeros->getCantidadPasajeros();
+}
 cPasajero* cAvion::getPasajero(string DNI) {
 	return ListaPasajeros->getPasajero(DNI);
 }

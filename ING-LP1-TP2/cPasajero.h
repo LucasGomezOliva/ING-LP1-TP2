@@ -8,13 +8,13 @@ class cPasajero
 private:
 	string DNI;
 	string Nombre;
-	//numero de vuelo
+	int NumeroVuelo;
 	int Asiento;
 	cListaValijas* ListaValijas = NULL;
 	const float peso_prom = 75;
 public:
 	cPasajero();
-	cPasajero(string DNI, string Nombre, int Asiento);
+	cPasajero(string DNI, string Nombre, int NumeroVuelo, int Asiento);
 	~cPasajero();
 	bool AgregarEquipaje(float peso);
 	float getPeso();
