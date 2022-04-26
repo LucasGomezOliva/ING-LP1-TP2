@@ -14,6 +14,7 @@ public:
 	bool AgregarValija(float peso);
 	bool EliminarValija(int CantidadEliminar);
 	float getPesoEquipaje() { return PesoActual; };
+	int getCantidadValijas() { return CantidadValijas; };
 
 };
 

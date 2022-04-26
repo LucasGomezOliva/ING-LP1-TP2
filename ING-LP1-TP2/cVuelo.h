@@ -4,9 +4,9 @@ using namespace std;
 #include"cFecha.h"
 #include"cAvion.h"
 #include"cPasajero.h"
+#include "EstadoVuelo.h"
 
 //TODO separar enum
-enum class EstadoVuelo { Arribo, Partida };
 
 class cVuelo
 {

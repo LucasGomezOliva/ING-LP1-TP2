@@ -5,6 +5,7 @@
 #include <time.h>
 #include"cAeropuerto.h"
 #include"cPasajero.h"
+
 using namespace std;
 
 int cVuelo::NumeroVuelo = 0;
@@ -46,6 +47,10 @@ int main()
     *(Pasajero_2) + 10;
     *(Pasajero_3) + 5;
     *(Pasajero_3) + 10;
+    *(Pasajero_3) + 3;
+    *(Pasajero_3) + 2;
+
+
 
     //Imprimen los datos de los pasajeros
 
@@ -55,9 +60,12 @@ int main()
 
     //Eliminar quipaje del passajero usando sobrecarga del operador-  ----REVISAR NO ANDA
 
-    //*(Pasajero_2)-2;
-
+    *(Pasajero_2)-2;
+    *(Pasajero_3)-2;
+    *(Pasajero_1)-6;
     Pasajero_2->imprimir();
+    Pasajero_3->imprimir();
+    Pasajero_1->imprimir();
 
     //Agregan los pasajeros vuelo_001
 

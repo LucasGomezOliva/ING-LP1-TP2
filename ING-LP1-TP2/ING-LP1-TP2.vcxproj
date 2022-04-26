@@ -162,6 +162,7 @@
     <ClInclude Include="cPasajero.h" />
     <ClInclude Include="cValija.h" />
     <ClInclude Include="cVuelo.h" />
+    <ClInclude Include="EstadoVuelo.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
