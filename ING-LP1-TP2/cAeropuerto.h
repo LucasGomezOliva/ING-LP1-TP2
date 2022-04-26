@@ -12,6 +12,7 @@ private:
 	cListaVuelos* ListaVuelos;
 	cListaAviones* ListaAviones;
 	int PasajerosDia;
+	int hangar;
 public:
 	friend cVuelo;
 	cAeropuerto();
@@ -23,9 +24,9 @@ public:
 	//void Despegue(cVuelo* vuelo);
 
 	void Despegue();
-	void Aterrizaje();
-
-	void PermisoDespegar();
+	void Aterrizaje(cVuelo*vuelo);
+	bool PermisoDespegar(int pos);//recibe la pos de un avion
+	bool PermisoAterrizar();
 	
 };
 

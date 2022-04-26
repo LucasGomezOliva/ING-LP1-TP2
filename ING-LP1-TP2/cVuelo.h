@@ -1,12 +1,13 @@
 #pragma once
 using namespace std;
 #include<string>
-#include"cFecha.h"
-#include"cAvion.h"
-#include"cPasajero.h"
+#include<stdlib.h>
+#include<time.h>
+#include "cFecha.h"
+#include "cAvion.h"
+#include "cPasajero.h"
 #include "EstadoVuelo.h"
 
-//TODO separar enum
 
 class cVuelo
 {
@@ -15,9 +16,12 @@ private:
 	string ID;
 	EstadoVuelo estado;
 	cAvion* Avion = NULL;
-	cFecha* partida = NULL;
-	cFecha* arribo = NULL;
+	cFecha* PartidaProgramada = NULL;
+	cFecha* ArriboProgramado = NULL;
+	cFecha* PartidaReal = NULL;
+	cFecha* ArriboReal = NULL;
 	string destino;
+	bool Puntual;
 
 public:
 	//friend cAvion;

@@ -99,7 +99,7 @@ int main()
 
     //Aterrizaje de un Avion en el aeropuerto ---FALTA IMPLEMENTAR EL METODO ATERRIZAJE EN AEROPUERTO
 
-    Aeropuerto_1->Aterrizaje();
+    Aeropuerto_1->Aterrizaje(Vuelo_002);
 
     //Deletes
 

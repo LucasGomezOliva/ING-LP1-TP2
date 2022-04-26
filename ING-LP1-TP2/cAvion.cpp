@@ -53,8 +53,8 @@ string cAvion::getID() {
 	return ID;
 }
 
-void cAvion::Despegar() {
-
+bool cAvion::Despegar() {
+	return Verificaciones();
 }
 void cAvion::Aterrizar() {
 

@@ -12,12 +12,25 @@ cVuelo::cVuelo(string _destino,int P_dia, int P_mes, int P_anio, int P_hora, int
 	this->ID = to_string(NumeroVuelo);
 	this->estado = Estado;
 	this->destino = _destino;
-	this->partida = new cFecha(P_dia, P_mes, P_anio, P_hora, P_minutos);
-	this->arribo = new cFecha(A_dia, A_mes, A_anio, A_hora, A_minutos);
+	this->PartidaProgramada = new cFecha(P_dia, P_mes, P_anio, P_hora, P_minutos);
+	this->ArriboProgramado = new cFecha(A_dia, A_mes, A_anio, A_hora, A_minutos);
+	srand(time(NULL));//seed
+	this->Puntual= rand() % 2;//el vuelo se atrasa o no aleatoriamente
+	if (Puntual = false) {
+		this->PartidaReal = new cFecha(P_dia, P_mes, P_anio, P_hora + 1, P_minutos);
+		this->ArriboReal = new cFecha(A_dia, A_mes, A_anio, A_hora + 1, A_minutos);
+	}
+	else {
+		this->PartidaReal = new cFecha(P_dia, P_mes, P_anio, P_hora, P_minutos);
+		this->ArriboReal = new cFecha(A_dia, A_mes, A_anio, A_hora, A_minutos);
+	}
+
 }
 cVuelo::~cVuelo() {
-	delete partida;
-	delete arribo;
+	delete PartidaProgramada;
+	delete PartidaReal;
+	delete ArriboProgramado;
+	delete ArriboReal;
 }
 
 bool cVuelo::AsociarAvion(cAvion* avion) {
@@ -70,7 +83,7 @@ string cVuelo::to_stringVuelo() {
 	string stringestado;
 	if (this->estado == EstadoVuelo::Arribo) {stringestado = "Arribo";}
 	else { stringestado = "Partida"; }
-	return "Numero de vuelo:" + getID() + "\n\tPartida: " + partida->to_stringFecha() + "\n\tArribo: " + arribo->to_stringFecha() + "\n\tEstado:" + stringestado;
+	return "Numero de vuelo:" + getID() + "\n\tPartida: " + PartidaProgramada->to_stringFecha() + "\n\tArribo: " + ArriboProgramado->to_stringFecha() + "\n\tEstado:" + stringestado;
 }
 void cVuelo::imprimir() {
 	cout << to_stringVuelo() << endl;

@@ -33,11 +33,12 @@ void cAeropuerto::Despegue() {
 
 	for (int i = 0; i < ListaVuelos->CantidadMax; i++)
 	{
-		if (ListaVuelos->ArrayVuelos[i]!=NULL) {
-			if (ListaVuelos->ArrayVuelos[i]->getEstadoVuelo() == EstadoVuelo::Partida) {
+		if (ListaVuelos->ArrayVuelos[i] != NULL) {
+			if (ListaVuelos->ArrayVuelos[i]->getEstadoVuelo() == EstadoVuelo::Partida && PermisoDespegar(i) == true) {
 				PasajerosDia = PasajerosDia + ListaVuelos->ArrayVuelos[i]->getCantidadPasajerosVuelo();
 				ListaAviones->QuitarAvion(ListaVuelos->ArrayVuelos[i]->getAvion());
 				ListaVuelos->QuitarVuelo(ListaVuelos->ArrayVuelos[i]->getNumeroVuelo());
+				
 			}
 		}
 	}
@@ -48,9 +49,24 @@ void cAeropuerto::Despegue() {
 	*/
 }
 
-void cAeropuerto::Aterrizaje() {
-	/* Pasando como parametro el vuelo que va a aterrizar
-	PasajerosDia = PasajerosDia + vuelo->getCantidadPasajerosVuelo();
-	ListaAviones->AgregarAvion(vuelo->getAvion());
-	*/
+void cAeropuerto::Aterrizaje(cVuelo* vuelo) {
+	// Pasando como parametro el vuelo que va a aterrizar
+	
+	if (PermisoAterrizar() == true)
+	{
+		PasajerosDia = PasajerosDia + vuelo->getCantidadPasajerosVuelo();
+		ListaAviones->AgregarAvion(vuelo->getAvion());
+
+	}
+}
+
+bool cAeropuerto::PermisoDespegar(int pos) {
+	if (ListaVuelos->ArrayVuelos[pos]->getAvion()->Despegar() == true) return true;
+	else return false;
+}
+
+bool cAeropuerto::PermisoAterrizar()
+{
+	if (ListaAviones->getCantidadAviones() < ListaAviones->getCapacidadMaximaHangar()) return true;
+	else return false;
 }
