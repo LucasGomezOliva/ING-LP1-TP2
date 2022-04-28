@@ -5,16 +5,16 @@
 #include <time.h>
 #include"cAeropuerto.h"
 #include"cPasajero.h"
-
 using namespace std;
 
 int cVuelo::NumeroVuelo = 0;
 
 int main()
 {
+
     //Creación de Aeropuerto
 
-    cAeropuerto* Aeropuerto_1 = new cAeropuerto("Aero");
+    cAeropuerto* Aeropuerto_1 = new cAeropuerto("destino_2");
 
     //Crean los Aviones
 
@@ -34,10 +34,13 @@ int main()
     //Crean los pasajeros y se agrega su equipaje usando sobrecarga de operador +
     
     //Pasajeros vuelos_001
+
     cPasajero* Pasajero_1 = new cPasajero("DNI_0001", "Nombre_0001", 1, 0);
     cPasajero* Pasajero_2 = new cPasajero("DNI_0002", "Nombre_0002", 1, 1);
     cPasajero* Pasajero_3 = new cPasajero("DNI_0003", "Nombre_0003", 1, 2);
+
     //Pasajeros vuelos_002
+
     cPasajero* Pasajero_4 = new cPasajero("DNI_0004", "Nombre_0004", 2, 0);
     cPasajero* Pasajero_5 = new cPasajero("DNI_0005", "Nombre_0005", 2, 1);
 
@@ -50,19 +53,20 @@ int main()
     *(Pasajero_3) + 3;
     *(Pasajero_3) + 2;
 
-
-
     //Imprimen los datos de los pasajeros
 
     Pasajero_1->imprimir();
     Pasajero_2->imprimir();
     Pasajero_3->imprimir();
 
-    //Eliminar quipaje del passajero usando sobrecarga del operador-  ----REVISAR NO ANDA
+    //Eliminar Equipaje del pasajero usando sobrecarga del operador-  ----REVISAR NO ANDA
+
+    cout << "Elimino equipaje\n";
 
     *(Pasajero_2)-2;
     *(Pasajero_3)-2;
     *(Pasajero_1)-6;
+
     Pasajero_2->imprimir();
     Pasajero_3->imprimir();
     Pasajero_1->imprimir();
@@ -81,7 +85,7 @@ int main()
     //Carga de Lista de aviones en el hangar del Aeropuerto
   
     Aeropuerto_1->getListaAviones()->AgregarAvion(Avion_001);
-    Aeropuerto_1->getListaAviones()->AgregarAvion(Avion_002);
+    //Aeropuerto_1->getListaAviones()->AgregarAvion(Avion_002);
 
     //Carga de Lista de Vuelos en el Aeropuerto
 
@@ -93,13 +97,28 @@ int main()
     Vuelo_001->imprimir();
     Vuelo_002->imprimir();
 
-    //Despegue de Avion del Aeropuerto ---FALTA IMPLEMENTAR EL METODO QUITAR AVION EN LISTA AVIONES
+    //Despegue de Avion del Aeropuerto 
 
     Aeropuerto_1->Despegue();
 
-    //Aterrizaje de un Avion en el aeropuerto ---FALTA IMPLEMENTAR EL METODO ATERRIZAJE EN AEROPUERTO
+    //Imprime los datos del vuelo_001 para comprobar si fue demorado para despegar
 
-    Aeropuerto_1->Aterrizaje(Vuelo_002);
+    Vuelo_001->imprimir();
+
+    //Aterrizaje de un Avion en el aeropuerto 
+
+    try {
+       Aeropuerto_1->Aterrizaje(Vuelo_002);
+       Vuelo_002->imprimir();
+    }
+    catch (exception&e) {
+        cout << e.what() << endl;
+    }
+
+    //Fin del dia
+
+    cout << "\nResumen del dia" << endl;
+    Aeropuerto_1->imprimir();
 
     //Deletes
 

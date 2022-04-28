@@ -17,10 +17,12 @@ public:
 	cPasajero(string DNI, string Nombre, int NumeroVuelo, int Asiento);
 	~cPasajero();
 	bool AgregarEquipaje(float peso);
+
 	float getPeso();
 	int getAsiento();
 	string getDNI();
 	string getNombre();
+
 	string to_stringPasajero();
 	void imprimir();
 

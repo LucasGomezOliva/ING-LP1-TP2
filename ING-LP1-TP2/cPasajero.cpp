@@ -41,7 +41,11 @@ string cPasajero::getNombre() {
 }
 
 string cPasajero::to_stringPasajero() {
-	return "\tNombre: " + Nombre + "\tDNI: " + DNI +"\tCantidad de Valijas: "+ to_string(ListaValijas->getCantidadValijas()) + "\tPeso Equipaje: " + to_string(ListaValijas->getPesoEquipaje()) + "\tPeso Pasajero+Equipaje: " + to_string(getPeso());
+	return "\tNombre: " + Nombre + 
+		"\tDNI: " + DNI +
+		"\tCantidad de Valijas: "+ to_string(ListaValijas->getCantidadValijas()) + 
+		"\tPeso Equipaje: " + to_string(ListaValijas->getPesoEquipaje()) + 
+		"\tPeso Pasajero+Equipaje: " + to_string(getPeso());
 }
 
 void cPasajero::imprimir() {

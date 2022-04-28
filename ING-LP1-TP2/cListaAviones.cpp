@@ -26,9 +26,23 @@ bool cListaAviones::AgregarAvion(cAvion* avion) {
 	this->ArrayAviones[CantidadAviones++] = avion;
 	return true;
 }
-bool cListaAviones::QuitarAvion(cAvion*avion) {
-	//TODO
+bool cListaAviones::QuitarAvion(cAvion*avion) { 
+	
+	// Revisar funciona
+
+	for (int i = 0; i < CantidadAviones; i++)
+	{
+		if (ArrayAviones[i]->getID()==avion->getID()){
+
+			for (int p = i; p < CantidadAviones - 1; p++)
+			{
+				ArrayAviones[p] = ArrayAviones[p + 1];
+			}
+			ArrayAviones[--CantidadAviones] = NULL;
+		}
+	}
 	return true;
+
 }
 
 int cListaAviones::getIndex(string ID) {

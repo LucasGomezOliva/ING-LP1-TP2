@@ -11,7 +11,7 @@ private:
 	string ID;
 	const int Tripulacion = 4;
 	const int CapacidadPasajeros = 30;
-	const float PesoMaximo = 500;
+	const float PesoMaximo = 5000;
 	cListaPasajeros* ListaPasajeros;
 public:
 	//friend cListaAviones;

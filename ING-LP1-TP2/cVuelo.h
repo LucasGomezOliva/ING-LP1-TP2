@@ -21,7 +21,8 @@ private:
 	cFecha* PartidaReal = NULL;
 	cFecha* ArriboReal = NULL;
 	string destino;
-	bool Puntual;
+	//int Puntual;
+	bool Demora;
 
 public:
 	//friend cAvion;
@@ -29,6 +30,7 @@ public:
 	cVuelo(string _destino, int P_dia, int P_mes, int P_anio, int P_hora, int P_minutos, int A_dia, int A_mes, int A_anio, int A_hora, int A_minutos,EstadoVuelo Estado);
 	~cVuelo();
 	bool AsociarAvion(cAvion* avion);
+	void Retraso();
 	void AgregarPasajero(cPasajero* pasajero);
 	void CambiarPasajero(string DNI, cVuelo* NuevoVuelo);
 	void EliminarPasajero(string DNI);
@@ -38,6 +40,8 @@ public:
 	string getID();
 	cAvion* getAvion();
 	EstadoVuelo getEstadoVuelo();
+	bool getDemora();
+	void setEstadoVuelo(EstadoVuelo estado);
 	string to_stringVuelo();
 	void imprimir();
 };
