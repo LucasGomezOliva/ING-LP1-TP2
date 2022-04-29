@@ -97,6 +97,11 @@ int main()
     Vuelo_001->imprimir();
     Vuelo_002->imprimir();
 
+    //Cambio a un pasajero de vuelo
+
+    Vuelo_001->CambiarPasajero("DNI_0003", Vuelo_002);
+    Vuelo_001->CambiarPasajero("DNI_0001", Vuelo_001);
+
     //Despegue de Avion del Aeropuerto 
 
     Aeropuerto_1->Despegue();

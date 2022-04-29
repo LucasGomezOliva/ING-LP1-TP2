@@ -19,6 +19,7 @@ float cAvion::CalcularPeso() {
 }
 
 bool cAvion::AgregarPasajero(cPasajero* pasajero) {
+
 	ListaPasajeros->AgregarPasajeros(pasajero);
 	return true;
 }

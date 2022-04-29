@@ -16,7 +16,10 @@ cPasajero::cPasajero(string DNI, string Nombre, int NumeroVuelo, int Asiento){
 }
 
 cPasajero::~cPasajero() {
-	delete ListaValijas;
+	if (ListaValijas != NULL) {
+		delete ListaValijas;
+	}
+
 }
 
 bool cPasajero::AgregarEquipaje(float peso) {

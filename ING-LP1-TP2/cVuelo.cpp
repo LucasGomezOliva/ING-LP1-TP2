@@ -15,6 +15,8 @@ cVuelo::cVuelo(string _destino,int P_dia, int P_mes, int P_anio, int P_hora, int
 	this->PartidaProgramada = new cFecha(P_dia, P_mes, P_anio, P_hora, P_minutos);
 	this->ArriboProgramado = new cFecha(A_dia, A_mes, A_anio, A_hora, A_minutos);
 	this->Demora = false;
+	//this->PartidaReal = NULL;
+	//this->ArriboReal = NULL;
 	/*
 	srand(time(NULL));//seed
 	this->Puntual= rand() % 2;//el vuelo se atrasa o no aleatoriamente
@@ -60,13 +62,15 @@ void cVuelo::AgregarPasajero(cPasajero* pasajero) {
 	Avion->ListaPasajeros->AgregarPasajeros(pasajero);
 
 }
-void cVuelo::CambiarPasajero(string DNI, cVuelo* NuevoVuelo) {
 
+void cVuelo::CambiarPasajero(string DNI, cVuelo* NuevoVuelo) {
+	NuevoVuelo->AgregarPasajero(Avion->getPasajero(DNI));
+	this->EliminarPasajero(DNI);//falta ver que no elimine si no se agrega
 }
 void cVuelo::EliminarPasajero(string DNI){
 	//Avion->ListaPasajeros->QuitarPasajero(DNI);
 	//Clase friend
-	Avion->ListaPasajeros->QuitarPasajero(DNI);
+	Avion->ListaPasajeros->EliminarPasajero(DNI);
 }
 
 cPasajero* cVuelo::getPasajero(string DNI) {
