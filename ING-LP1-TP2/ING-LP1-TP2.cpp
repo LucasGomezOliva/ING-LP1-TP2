@@ -91,10 +91,13 @@ int main()
     Aeropuerto_1->getListaVuelos()->AgregarVuelo(Vuelo_001);
     Aeropuerto_1->getListaVuelos()->AgregarVuelo(Vuelo_002);
 
-    //Imprimen los vuelos
+    //Imprimo Vuelo_001 usando el metodo imprimir()
 
     Vuelo_001->imprimir();
-    Vuelo_002->imprimir();
+
+    //Imprimo Vuelo_002 usando sobrecarga el operador <<
+
+    cout << Vuelo_002;
 
     //Cambio a un pasajero de Vuelo_001 al Vuelo_002
 
