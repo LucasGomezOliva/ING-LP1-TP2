@@ -10,11 +10,6 @@ cListaAviones::cListaAviones() {
 
 cListaAviones::~cListaAviones() {
 	if (ArrayAviones != NULL) {
-		/*for (int i = 0; i < CantidadVuelos; i++) {
-			if (ArrayVuelos[i] != NULL)
-				delete ArrayVuelos[i];
-		}
-		*/
 		delete[] ArrayAviones;
 	}
 }

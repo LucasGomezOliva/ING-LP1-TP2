@@ -59,13 +59,6 @@ void cAeropuerto::Despegue() {
 			}
 		}
 	}
-	//void cAeropuerto::Despegue(cVuelo* vuelo) {
-	/* Pasando como parametro el vuelo que va a despegar
-	ListaVuelos->QuitarVuelo(vuelo->getNumeroVuelo());
-	ListaAviones->QuitarAvion(vuelo->getAvion());
-	PasajerosDia = PasajerosDia + vuelo->getCantidadPasajerosVuelo();
-	}
-	*/
 }
 
 void cAeropuerto::Aterrizaje(cVuelo* vuelo) {
@@ -85,7 +78,6 @@ bool cAeropuerto::PermisoDespegar(int pos) {
 
 bool cAeropuerto::PermisoAterrizar(){
 	if (ListaAviones->getCantidadAviones() < ListaAviones->getCapacidadMaximaHangar()) return true;
-	//else return false;
 	throw exception ("No hay lugar");
 }
 

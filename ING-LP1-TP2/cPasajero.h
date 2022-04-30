@@ -26,10 +26,6 @@ public:
 	void imprimir();
 	void operator + ( float valija );
 	void operator - (int CantidadEliminar);
-	int operator [] (int pos) {
-		int peso;
-		peso = ListaValijas->getPesoValija(pos);
-		return peso;
-	}
+	float operator [] (int pos);
 };
 

@@ -7,11 +7,10 @@
 #include"cPasajero.h"
 using namespace std;
 
-int cVuelo::NumeroVuelo = 0;
+//int cVuelo::NumeroVuelo = 0;
 
 int main()
 {
-
     //Creación de Aeropuerto
 
     cAeropuerto* Aeropuerto_1 = new cAeropuerto("destino_2");
@@ -48,7 +47,7 @@ int main()
     *(Pasajero_3) + 3;
     *(Pasajero_3) + 2;
 
-    //Imprimir peso de cada valija usando operador []
+    //Imprimir peso de las 2 valijas del Pasajero_1 usando operador []
 
     cout << "Peso de la valija 1:" + to_string(Pasajero_1[0][0]) << endl;
     cout << "Peso de la valija 2:" + to_string(Pasajero_1[0][1]) << endl;

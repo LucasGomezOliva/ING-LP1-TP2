@@ -16,11 +16,6 @@ cPasajero::cPasajero(string DNI, string Nombre, int NumeroVuelo, int Asiento){
 }
 
 cPasajero::~cPasajero() {
-	/*
-	if (ListaValijas != NULL) {
-		delete ListaValijas;
-	}
-	*/
 	delete ListaValijas;
 }
 
@@ -70,4 +65,10 @@ void cPasajero::operator+ ( float valija) {
 
 void cPasajero::operator-( int CantidadEliminar) {
 	ListaValijas->EliminarValija(CantidadEliminar);
+}
+
+float cPasajero::operator [] (int pos) {
+	float peso;
+	peso = ListaValijas->getPesoValija(pos);
+	return peso;
 }

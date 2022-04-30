@@ -10,26 +10,11 @@ cListaPasajeros::cListaPasajeros() {
 
 cListaPasajeros::~cListaPasajeros() {
 	if (ArrayPasajeros != NULL) {
-		/*
-		for (int i = 0; i < CantidadPasajeros; i++) {
-			//if (ArrayPasajeros[i] != NULL)
-
-				///delete ArrayPasajeros[i];
-		}
-		*/
 		delete[] ArrayPasajeros;
 	}
 }
 bool cListaPasajeros::AgregarPasajeros(cPasajero* pasajero) {
-	/*
-	for (int i = 0; i < CantidadMax;i++)
-	{
-		if (ArrayPasajeros[i] == pasajero) {
-
-		}
-	}
-	*/
-
+	
 	if (ArrayPasajeros[pasajero->getAsiento()] == NULL) {
 		ArrayPasajeros[pasajero->getAsiento()] = pasajero;
 		CantidadPasajeros++;
@@ -41,31 +26,14 @@ bool cListaPasajeros::AgregarPasajeros(cPasajero* pasajero) {
 
 void cListaPasajeros::QuitarPasajero(string DNI) {
 	int pos = getIndex(DNI);
-	//cPasajero* aux = new cPasajero();
 	if (pos >= 0) {
 		ArrayPasajeros[pos] = NULL;
-		/*for (int i = pos; i < CantidadMax - 1; i++)
-		{
-			aux = ArrayPasajeros[i];
-			ArrayPasajeros[i] = ArrayPasajeros[i + 1];
-			ArrayPasajeros[i + 1] = aux;
-		}*/
 		CantidadPasajeros--;
 	}
-	/*
-	for (int i = pos; i < CantidadMax-1; i++)
-	{
-		aux = ArrayPasajeros[i];
-		ArrayPasajeros[i] = ArrayPasajeros[i + 1];
-		ArrayPasajeros[i + 1] = aux;
-	}
-	*/
 }
 
-void cListaPasajeros::EliminarPasajero(string DNI)
-{
+void cListaPasajeros::EliminarPasajero(string DNI){
 	QuitarPasajero(DNI);
-	//CantidadPasajeros--;
 }
 
 float cListaPasajeros::CalcularPeso() {

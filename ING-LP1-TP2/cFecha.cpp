@@ -4,10 +4,6 @@ cFecha::cFecha() {
 	fecha.tm_min = 0;
 	fecha.tm_sec = 0;
 	fecha.tm_mday = 0;
-	/*
-	fecha.tm_mon = mes - 1;
-	fecha.tm_year = anio - 1900;
-	*/
 	fecha.tm_mon = 0;
 	fecha.tm_year = 0;
 	fecha.tm_wday = 0;
@@ -20,10 +16,6 @@ cFecha::cFecha(int dia, int mes, int anio, int hora,int minutos) {
 	fecha.tm_min = minutos;
 	fecha.tm_sec = 0;
 	fecha.tm_mday = dia;
-	/*
-	fecha.tm_mon = mes - 1;
-	fecha.tm_year = anio - 1900;
-	*/
 	fecha.tm_mon = mes;
 	fecha.tm_year = anio;
 	fecha.tm_wday = 0;

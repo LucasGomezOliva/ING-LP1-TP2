@@ -1,5 +1,7 @@
 #include "cVuelo.h"
 
+int cVuelo::NumeroVuelo = 0;
+
 cVuelo::cVuelo() {
 	this->NumeroVuelo++;
 	this->ID = to_string(NumeroVuelo);
@@ -18,20 +20,6 @@ cVuelo::cVuelo(string _destino,int P_dia, int P_mes, int P_anio, int P_hora, int
 	this->PartidaProgramada = new cFecha(P_dia, P_mes, P_anio, P_hora, P_minutos);
 	this->ArriboProgramado = new cFecha(A_dia, A_mes, A_anio, A_hora, A_minutos);
 	this->Demora = false;
-	//this->PartidaReal = NULL;
-	//this->ArriboReal = NULL;
-	/*
-	srand(time(NULL));//seed
-	this->Puntual= rand() % 2;//el vuelo se atrasa o no aleatoriamente
-	if (Puntual == 1) {
-		this->PartidaReal = new cFecha(P_dia, P_mes, P_anio, P_hora + 1, P_minutos);
-		this->ArriboReal = new cFecha(A_dia, A_mes, A_anio, A_hora + 1, A_minutos);
-	}
-	else {
-		this->PartidaReal = new cFecha(P_dia, P_mes, P_anio, P_hora, P_minutos);
-		this->ArriboReal = new cFecha(A_dia, A_mes, A_anio, A_hora, A_minutos);
-	}
-	*/
 }
 cVuelo::~cVuelo() {
 	delete PartidaProgramada;
@@ -60,8 +48,6 @@ void cVuelo::Retraso() {
 }
 
 bool cVuelo::AgregarPasajero(cPasajero* pasajero) {
-	//Avion->AgregarPasajero(pasajero);
-	//Clase friend
 	if (true == Avion->ListaPasajeros->AgregarPasajeros(pasajero)) {
 		return true;
 	}
@@ -78,28 +64,13 @@ void cVuelo::CambiarPasajero(string DNI, cVuelo* NuevoVuelo) {
 	else {
 		throw exception("No se pudo cambiar de vuelo");
 	}
-	/*
-	try {
-		NuevoVuelo->AgregarPasajero(Avion->getPasajero(DNI));
-		Avion->BajaPasajero(DNI);
-	}
-	catch (exception& e) {
-		cout << e.what() << endl;
-	}
-	*/
-	//NuevoVuelo->AgregarPasajero(Avion->getPasajero(DNI));
-	//Avion->BajaPasajero(DNI);
-	//this->EliminarPasajero(DNI);//falta ver que no elimine si no se agrega
+	
 }
 void cVuelo::EliminarPasajero(string DNI){
-	//Avion->ListaPasajeros->QuitarPasajero(DNI);
-	//Clase friend
 	Avion->ListaPasajeros->EliminarPasajero(DNI);
 }
 
 cPasajero* cVuelo::getPasajero(string DNI) {
-	//return Avion->getPasajero(DNI)->to_stringPasajero();
-
 	return Avion->ListaPasajeros->getPasajero(DNI);
 }
 
@@ -152,6 +123,7 @@ string cVuelo::to_stringVuelo() const {
 	}
 	return retorno;
 }
+
 void cVuelo::imprimir() const {
 	cout << to_stringVuelo() << endl;
 	cout << "\n\tLista de pasajeros en el vuelo\n" << endl;

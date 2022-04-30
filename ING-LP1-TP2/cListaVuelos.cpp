@@ -11,11 +11,6 @@ cListaVuelos::cListaVuelos(){
 
 cListaVuelos::~cListaVuelos() {
 	if (ArrayVuelos != NULL) {
-		/*for (int i = 0; i < CantidadVuelos; i++) {
-			if (ArrayVuelos[i] != NULL)
-				delete ArrayVuelos[i];
-		}
-		*/
 		delete[] ArrayVuelos;
 	}
 }

@@ -4,11 +4,10 @@ using namespace std;
 class cListaAviones
 {
 private:
-	const int CantidadMax = 10;//CAPACIDAD MAXIMA HANGAR
+	const int CantidadMax = 10;
 	int CantidadAviones;
 	cAvion** ArrayAviones;
 public:
-	//friend class cAeropuerto;
 	cListaAviones();
 	~cListaAviones();
 	bool AgregarAvion(cAvion* avion);
