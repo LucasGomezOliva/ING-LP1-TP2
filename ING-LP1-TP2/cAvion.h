@@ -25,7 +25,6 @@ public:
 	bool ChequearCapacidadMaxima();
 	bool Verificaciones();
 	bool Despegar();
-	void Aterrizar();
 	int getCantidadPasajeros();
 	cPasajero* getPasajero(string DNI);
 	string getID();

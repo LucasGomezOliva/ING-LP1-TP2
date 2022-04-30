@@ -7,8 +7,6 @@
 #include"cPasajero.h"
 using namespace std;
 
-//int cVuelo::NumeroVuelo = 0;
-
 int main()
 {
     //Creación de Aeropuerto
@@ -84,8 +82,7 @@ int main()
     //Carga de Lista de aviones en el hangar del Aeropuerto
   
     Aeropuerto_1->getListaAviones()->AgregarAvion(Avion_001);
-    //Aeropuerto_1->getListaAviones()->AgregarAvion(Avion_002);
-
+   
     //Carga de Lista de Vuelos en el Aeropuerto
 
     Aeropuerto_1->getListaVuelos()->AgregarVuelo(Vuelo_001);

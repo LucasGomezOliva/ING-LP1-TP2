@@ -57,9 +57,6 @@ string cAvion::getID() {
 bool cAvion::Despegar() {
 	return Verificaciones();
 }
-void cAvion::Aterrizar() {
-	//////////////////////////////////////////////
-}
 
 int cAvion::getCantidadPasajeros() {
 	return ListaPasajeros->getCantidadPasajeros();

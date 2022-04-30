@@ -53,8 +53,6 @@ void cAeropuerto::Despegue() {
 				ListaVuelos->ArrayVuelos[i]->setEstadoVuelo(EstadoVuelo::Arribo);
 				//Elimino el avion de la lista del hangar del aeropuerto
 				ListaAviones->QuitarAvion(ListaVuelos->ArrayVuelos[i]->getAvion());
-				//--------------Eliminar o no vuelo-----------------------
-				//ListaVuelos->QuitarVuelo(ListaVuelos->ArrayVuelos[i]->getNumeroVuelo());
 				VuelosDespegaron++;
 			}
 		}
