@@ -26,7 +26,7 @@ public:
 	cListaAviones* getListaAviones();
 	//void Despegue(cVuelo* vuelo);
 	void Despegue();
-	void Aterrizaje(cVuelo*vuelo);
+	void Aterrizaje(cVuelo* vuelo);
 	bool PermisoDespegar(int pos);//recibe la pos de un avion
 	bool PermisoAterrizar();
 	string toString();

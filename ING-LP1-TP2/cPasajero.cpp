@@ -16,10 +16,12 @@ cPasajero::cPasajero(string DNI, string Nombre, int NumeroVuelo, int Asiento){
 }
 
 cPasajero::~cPasajero() {
+	/*
 	if (ListaValijas != NULL) {
 		delete ListaValijas;
 	}
-
+	*/
+	delete ListaValijas;
 }
 
 bool cPasajero::AgregarEquipaje(float peso) {
@@ -43,9 +45,16 @@ string cPasajero::getNombre() {
 	return Nombre; 
 }
 
+void cPasajero::setNumeroVuelo(int NuevoNumeroVuelo) {
+	this->NumeroVuelo = NuevoNumeroVuelo;
+}
+
 string cPasajero::to_stringPasajero() {
-	return "\tNombre: " + Nombre + 
+	return 
+		"\tNombre: " + Nombre + 
 		"\tDNI: " + DNI +
+		"\tNumero de vuelo: " + to_string(NumeroVuelo) +
+		"\tAsiento asignado: " + to_string(Asiento) +
 		"\tCantidad de Valijas: "+ to_string(ListaValijas->getCantidadValijas()) + 
 		"\tPeso Equipaje: " + to_string(ListaValijas->getPesoEquipaje()) + 
 		"\tPeso Pasajero+Equipaje: " + to_string(getPeso());

@@ -31,7 +31,7 @@ public:
 	~cVuelo();
 	bool AsociarAvion(cAvion* avion);
 	void Retraso();
-	void AgregarPasajero(cPasajero* pasajero);
+	bool AgregarPasajero(cPasajero* pasajero);
 	void CambiarPasajero(string DNI, cVuelo* NuevoVuelo);
 	void EliminarPasajero(string DNI);
 	cPasajero* getPasajero(string DNI);
@@ -42,7 +42,9 @@ public:
 	EstadoVuelo getEstadoVuelo();
 	bool getDemora();
 	void setEstadoVuelo(EstadoVuelo estado);
-	string to_stringVuelo();
-	void imprimir();
+	string to_stringVuelo() const;
+	void imprimir()const;
+
+	friend ostream& operator<<(ostream& os, const cVuelo* vuelo);
 };
 

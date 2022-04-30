@@ -18,8 +18,8 @@ int main()
 
     //Crean los Aviones
 
-    cAvion* Avion_001 = new cAvion();
-    cAvion* Avion_002 = new cAvion();
+    cAvion* Avion_001 = new cAvion("Avion_0001");
+    cAvion* Avion_002 = new cAvion("Avion_0002");
 
     //Crean Vuelos 
 
@@ -33,14 +33,9 @@ int main()
 
     //Crean los pasajeros y se agrega su equipaje usando sobrecarga de operador +
     
-    //Pasajeros vuelos_001
-
     cPasajero* Pasajero_1 = new cPasajero("DNI_0001", "Nombre_0001", 1, 0);
     cPasajero* Pasajero_2 = new cPasajero("DNI_0002", "Nombre_0002", 1, 1);
     cPasajero* Pasajero_3 = new cPasajero("DNI_0003", "Nombre_0003", 1, 2);
-
-    //Pasajeros vuelos_002
-
     cPasajero* Pasajero_4 = new cPasajero("DNI_0004", "Nombre_0004", 2, 0);
     cPasajero* Pasajero_5 = new cPasajero("DNI_0005", "Nombre_0005", 2, 1);
 
@@ -53,13 +48,18 @@ int main()
     *(Pasajero_3) + 3;
     *(Pasajero_3) + 2;
 
+    //Imprimir peso de cada valija usando operador []
+
+    cout << "Peso de la valija 1:" + to_string(Pasajero_1[0][0]) << endl;
+    cout << "Peso de la valija 2:" + to_string(Pasajero_1[0][1]) << endl;
+
     //Imprimen los datos de los pasajeros
 
     Pasajero_1->imprimir();
     Pasajero_2->imprimir();
     Pasajero_3->imprimir();
 
-    //Eliminar Equipaje del pasajero usando sobrecarga del operador-  ----REVISAR NO ANDA
+    //Eliminar Equipaje del pasajero usando sobrecarga del operador - 
 
     cout << "Elimino equipaje\n";
 
@@ -71,13 +71,13 @@ int main()
     Pasajero_3->imprimir();
     Pasajero_1->imprimir();
 
-    //Agregan los pasajeros vuelo_001
+    //Agregan los pasajeros al  Vuelo_001
 
     Vuelo_001->AgregarPasajero(Pasajero_1);
     Vuelo_001->AgregarPasajero(Pasajero_2);
     Vuelo_001->AgregarPasajero(Pasajero_3);
 
-    //Agregan los pasajeros vuelo_002
+    //Agregan los pasajeros Vuelo_002
 
     Vuelo_002->AgregarPasajero(Pasajero_4);
     Vuelo_002->AgregarPasajero(Pasajero_5);
@@ -97,10 +97,14 @@ int main()
     Vuelo_001->imprimir();
     Vuelo_002->imprimir();
 
-    //Cambio a un pasajero de vuelo
+    //Cambio a un pasajero de Vuelo_001 al Vuelo_002
 
-    Vuelo_001->CambiarPasajero("DNI_0003", Vuelo_002);
-    Vuelo_001->CambiarPasajero("DNI_0001", Vuelo_001);
+    try {
+        Vuelo_001->CambiarPasajero("DNI_0003", Vuelo_002);
+    }
+    catch (exception& e) {
+        cout << e.what() << endl;
+    }
 
     //Despegue de Avion del Aeropuerto 
 
@@ -111,7 +115,7 @@ int main()
     Vuelo_001->imprimir();
 
     //Aterrizaje de un Avion en el aeropuerto 
-
+    
     try {
        Aeropuerto_1->Aterrizaje(Vuelo_002);
        Vuelo_002->imprimir();
@@ -119,11 +123,16 @@ int main()
     catch (exception&e) {
         cout << e.what() << endl;
     }
-
+   
     //Fin del dia
 
     cout << "\nResumen del dia" << endl;
     Aeropuerto_1->imprimir();
+
+    //Listar las personas de cada vuelo
+
+    Vuelo_001->getAvion()->getListaPasajeros()->listar();
+    Vuelo_002->getAvion()->getListaPasajeros()->listar();
 
     //Deletes
 

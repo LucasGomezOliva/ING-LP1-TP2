@@ -17,7 +17,7 @@ public:
 	~cListaVuelos();
 	bool AgregarVuelo(cVuelo* vuelo);
 	bool QuitarVuelo(int NumeroVuelo); //TODO: Revisar correcto funcionamiento
-	void DespegarVuelo();
+	//void DespegarVuelo();
 	int getIndex(int NumeroVuelo);
 };
 

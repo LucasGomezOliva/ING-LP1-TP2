@@ -10,12 +10,13 @@ private:
 public:
 	cListaPasajeros();
 	~cListaPasajeros();
-	void AgregarPasajeros(cPasajero* pasajero);
+	bool AgregarPasajeros(cPasajero* pasajero);
 	void QuitarPasajero(string DNI);
 	void EliminarPasajero(string DNI);
 	float CalcularPeso();
 	int getCantidadPasajeros();
 	int getIndex(string DNI);
 	cPasajero* getPasajero(string DNI);
+	void listar();
 };
 

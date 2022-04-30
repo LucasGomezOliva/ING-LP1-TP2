@@ -15,6 +15,6 @@ public:
 	bool EliminarValija(int CantidadEliminar);
 	float getPesoEquipaje() { return PesoActual; };
 	int getCantidadValijas() { return CantidadValijas; };
-
+	float getPesoValija(int pos) { return ArrayValijas[pos]->getPeso(); }
 };
 

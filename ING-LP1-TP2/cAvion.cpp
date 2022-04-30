@@ -67,3 +67,12 @@ int cAvion::getCantidadPasajeros() {
 cPasajero* cAvion::getPasajero(string DNI) {
 	return ListaPasajeros->getPasajero(DNI);
 }
+
+bool cAvion::RevisarAsiento(int Asiento) {
+	//IF(ListaPasajeros[Asiento] !=NULL){}
+	return false;
+}
+
+cListaPasajeros* cAvion::getListaPasajeros() { 
+	return ListaPasajeros; 
+}

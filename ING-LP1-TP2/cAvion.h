@@ -29,6 +29,8 @@ public:
 	void Aterrizar();
 	int getCantidadPasajeros();
 	cPasajero* getPasajero(string DNI);
+	bool RevisarAsiento(int Asiento);
 	string getID();
+	cListaPasajeros* getListaPasajeros();
 };
 

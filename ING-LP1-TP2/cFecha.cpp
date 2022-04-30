@@ -36,7 +36,8 @@ cFecha::~cFecha() {
 }
 
 string cFecha::to_stringFecha() {
-	return "\tFecha: " + to_string(fecha.tm_wday) + "/" + to_string(fecha.tm_mon) + "/" + to_string(fecha.tm_year) + "\t Hora:" + to_string(fecha.tm_hour) + ":" + to_string(fecha.tm_min);
+	return "\tFecha: " + to_string(fecha.tm_wday) + "/" + to_string(fecha.tm_mon) + "/" + to_string(fecha.tm_year) + 
+		"\t Hora:" + to_string(fecha.tm_hour) + ":" + to_string(fecha.tm_min);
 }
 void cFecha::imprimir() {
 	cout << to_stringFecha() << endl;

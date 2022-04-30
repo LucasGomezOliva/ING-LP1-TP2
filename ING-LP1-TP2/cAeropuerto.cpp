@@ -24,6 +24,7 @@ cAeropuerto::cAeropuerto(string ID) {
 
 cAeropuerto::~cAeropuerto() {
 	delete ListaAviones;
+	delete ListaVuelos;
 }
 
 cListaVuelos* cAeropuerto::getListaVuelos() {
@@ -69,7 +70,6 @@ void cAeropuerto::Despegue() {
 
 void cAeropuerto::Aterrizaje(cVuelo* vuelo) {
 	// Pasando como parametro el vuelo que va a aterrizar
-	
 	if (PermisoAterrizar() == true){
 		PasajerosDia = PasajerosDia + vuelo->getCantidadPasajerosVuelo();
 		ListaAviones->AgregarAvion(vuelo->getAvion());

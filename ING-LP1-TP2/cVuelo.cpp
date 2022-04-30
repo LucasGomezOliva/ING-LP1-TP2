@@ -5,6 +5,9 @@ cVuelo::cVuelo() {
 	this->ID = to_string(NumeroVuelo);
 	this->destino = "";
 	this->estado = EstadoVuelo::Partida;
+	this->PartidaProgramada = new cFecha(0, 0, 0, 0, 0);
+	this->ArriboProgramado = new cFecha(0, 0, 0, 0, 0);
+	this->Demora = false;
 }
 
 cVuelo::cVuelo(string _destino,int P_dia, int P_mes, int P_anio, int P_hora, int P_minutos, int A_dia, int A_mes, int A_anio, int A_hora, int A_minutos,EstadoVuelo Estado) {
@@ -56,16 +59,37 @@ void cVuelo::Retraso() {
 	}
 }
 
-void cVuelo::AgregarPasajero(cPasajero* pasajero) {
+bool cVuelo::AgregarPasajero(cPasajero* pasajero) {
 	//Avion->AgregarPasajero(pasajero);
 	//Clase friend
-	Avion->ListaPasajeros->AgregarPasajeros(pasajero);
-
+	if (true == Avion->ListaPasajeros->AgregarPasajeros(pasajero)) {
+		return true;
+	}
+	return false;
 }
 
 void cVuelo::CambiarPasajero(string DNI, cVuelo* NuevoVuelo) {
-	NuevoVuelo->AgregarPasajero(Avion->getPasajero(DNI));
-	this->EliminarPasajero(DNI);//falta ver que no elimine si no se agrega
+
+	if (true == NuevoVuelo->AgregarPasajero(Avion->getPasajero(DNI))) {
+		Avion->getPasajero(DNI)->setNumeroVuelo(NuevoVuelo->getNumeroVuelo());
+		Avion->BajaPasajero(DNI);
+	}
+
+	else {
+		throw exception("No se pudo cambiar de vuelo");
+	}
+	/*
+	try {
+		NuevoVuelo->AgregarPasajero(Avion->getPasajero(DNI));
+		Avion->BajaPasajero(DNI);
+	}
+	catch (exception& e) {
+		cout << e.what() << endl;
+	}
+	*/
+	//NuevoVuelo->AgregarPasajero(Avion->getPasajero(DNI));
+	//Avion->BajaPasajero(DNI);
+	//this->EliminarPasajero(DNI);//falta ver que no elimine si no se agrega
 }
 void cVuelo::EliminarPasajero(string DNI){
 	//Avion->ListaPasajeros->QuitarPasajero(DNI);
@@ -107,32 +131,34 @@ void cVuelo::setEstadoVuelo(EstadoVuelo estado) {
 	this->estado = estado;
 }
 
-string cVuelo::to_stringVuelo() {
+string cVuelo::to_stringVuelo() const {
 	string stringestado;
 	if (this->estado == EstadoVuelo::Arribo) {stringestado = "Arribo";}
 	else { stringestado = "Partida"; }
-
 	string stringdemora;
-	if (this->Demora == false) { 
-		stringdemora = "A horario";
-		return "Numero de vuelo:" + getID() + 
-			"\n\tEstado:" + stringestado +
-			"\n\tPartida Programada: " + PartidaProgramada->to_stringFecha() + 
-			"\n\tArribo Programado: " + ArriboProgramado->to_stringFecha() +  
-			"\n\tVuelo:" + stringdemora;
-	}
-	else { 
-		stringdemora = "Demorado";
-		return "Numero de vuelo:" + getID() +
-			"\n\tEstado:" + stringestado +
-			"\n\tPartida Programada: " + PartidaProgramada->to_stringFecha() +
-			"\n\tArribo Programado: " + ArriboProgramado->to_stringFecha() +
-			"\n\tVuelo:" + stringdemora + 
+	if (this->Demora == false) { stringdemora = "A horario"; }
+	else { stringdemora = "Demorado"; }
+	string retorno;
+	retorno = 
+		"Numero de vuelo:" + this->ID +
+		"\n\tEstado:" + stringestado +
+		"\n\tPartida Programada: " + PartidaProgramada->to_stringFecha() +
+		"\n\tArribo Programado: " + ArriboProgramado->to_stringFecha() +
+		"\n\tVuelo:" + stringdemora;
+	if (Demora == true) {
+		retorno = retorno + 
 			"\n\tPartida Real:\t " + PartidaReal->to_stringFecha() +
 			"\n\tArribo Real:\t " + ArriboReal->to_stringFecha();
 	}
-	
+	return retorno;
 }
-void cVuelo::imprimir() {
+void cVuelo::imprimir() const {
 	cout << to_stringVuelo() << endl;
+	cout << "\n\tLista de pasajeros en el vuelo\n" << endl;
+	Avion->getListaPasajeros()->listar();
+}
+
+ostream& operator<<(ostream& os, const cVuelo* vuelo){
+	os << vuelo->to_stringVuelo();
+	return os;
 }
